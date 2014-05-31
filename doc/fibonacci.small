@@ -1,0 +1,39 @@
+; Fibonacci in SmallThink.
+; By Maxime Alvarez.
+
+mov n_1, 1
+mov n, 0
+mov i, 0
+mov cmp_register, 1
+
+out "iterations: "
+in i
+; Do not forget to convert user input in numeric.
+num i
+
+label start
+
+	out n
+	out endline
+
+	; n_plus_n_1 = n + n_1
+	mov n_plus_n_1, n
+	add n_plus_n_1, n_1
+
+	; n = n_1
+	mov n, n_1
+	; n_1 = n_plus_n_1 = n + n_1
+	mov n_1, n_plus_n_1
+
+	add i, -1
+
+cmp_eq i, 0
+jz start
+
+; Prints the last term.
+out n
+out endline
+
+out "finished, press enter to exit"
+flush
+get i
