@@ -1,0 +1,13 @@
+; Cat in SmallThink.
+; By Maxime Alvarez.
+
+mov cmp_register, 1
+mov input, ""
+
+label start
+
+in input
+out input
+out endline
+
+jmp start
