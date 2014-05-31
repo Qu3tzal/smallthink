@@ -1,0 +1,18 @@
+; Used to do some tests with SmallThink.
+; By Maxime Alvarez.
+
+
+mov a, 0
+mov b, 10
+
+cmp_gt b, a
+jnz good
+
+out "bad"
+jmp end
+
+label good
+out "good"
+
+label end
+out endline
