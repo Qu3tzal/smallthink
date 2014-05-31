@@ -1,0 +1,55 @@
+; Plus ou moins en SmallThink.
+; Par Maxime Alvarez.
+
+; On choisit un nombre secret entre 0 et 100.
+mov random_max, 100
+seed_random
+mov nombre_secret, random_int
+
+; On initialise la variable essai.
+mov essai, 0
+
+out "-*- Jeu du plus ou moins -*-"
+
+; Point de départ de la boucle.
+label start
+	out endline
+
+	; On récupère l'entrée utilisateur.
+	out "Essayes de trouver : "
+	in essai
+	
+	; On convertit l'entrée de l'utilisateur.
+	num_int essai
+
+	; On compare le nombre secret à l'essai de l'utilisateur.
+	; Si l'essai est égal au nombre secret, on saute en dehors de la boucle.
+	cmp_eq essai, nombre_secret
+	jnz trouve
+
+	; On regarde si le nombre secret est plus grand que l'essai de l'utilisateur.
+	; Si nombre_secret > essai, alors on saute au message "Plus grand."
+	cmp_gt nombre_secret, essai
+	jnz plus_grand
+
+	; Si on a pas sauté c'est que nombre_secret < essai, donc on affiche le message, un saut de ligne et on saute au début de la boucle.
+	out "C'est moins."
+	out endline
+	jmp start
+	
+	; On affiche le message, un saut de ligne et on saute au début de la boucle.
+	label plus_grand
+	out "C'est plus."
+	out endline
+	jmp start
+
+; On est en dehors de la boucle, le nombre secret a été trouvé.
+label trouve
+out "Bien joue !"
+out endline
+
+; Message d'attente.
+out "Appuyez sur entree pour quitter..."
+flush
+; On se fiche se savoir dans quelle variable le résultat est stocké.
+get essai
