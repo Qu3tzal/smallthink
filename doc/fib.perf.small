@@ -1,6 +1,11 @@
 ; Fibonacci for performances tests in SmallThink.
 ; By Maxime Alvarez.
 
+; On my computer :
+; 	C++ version : 0.169 second.
+;	SmallThink version : 0.508 second.
+
+
 mov n_1, 1
 mov n, 0
 mov i, 1000
